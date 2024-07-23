@@ -169,7 +169,7 @@ if( $_POST['pedido'] <> ""){
   
       }  
 
-      
+
 
     if($pgto == "Cartão Debito" ){
 		
@@ -226,7 +226,7 @@ if( $_POST['pedido'] <> ""){
     }
 
 
-  echo  $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = '$numeropedido' ";
+    $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = '$numeropedido' ";
 
     $pedidos = mysqli_query($conn, $tab_pedidos);
   
