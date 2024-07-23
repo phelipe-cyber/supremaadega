@@ -109,7 +109,7 @@ $usuario = $_SESSION['user'];
           <span>Novo Pedido</span></a>
       </li>
 
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link" href="/pdv/?view=todosPedidoBalcao">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Ver Pedidos</span></a>
@@ -119,7 +119,7 @@ $usuario = $_SESSION['user'];
         <a class="nav-link" href="/pdv/?view=Dashboard1">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Ver Pedidos - Mesas</span></a>
-      </li>
+      </li> -->
 
       <!-- <li class="nav-item active">
         <a class="nav-link" href="/pdv/?view=delivery">
@@ -179,9 +179,9 @@ $usuario = $_SESSION['user'];
             <h6 class="collapse-header">Gestão</h6>
             <a class="collapse-item" href="/pdv/?view=estoque" style=" border-radius: 8px; font-size:18px;">Estoque</a>
             <a class="collapse-item" href="/pdv/?view=financeiro" style=" border-radius: 8px; font-size:18px;">Financeiro</a>
-            <a class="collapse-item" href="/pdv/?view=frete" style=" border-radius: 8px; font-size:18px;">Frete</a>
-            <a class="collapse-item" href="/pdv/?view=geolocalizacao" style=" border-radius: 8px; font-size:18px;">Geolocalização</a>
-            <a class="collapse-item" href="https://whatsapp-api-ph-b4d70f6eb4d2.herokuapp.com/" target="_blank" style=" border-radius: 8px; font-size:18px;">Conectar Whatsapp</a>
+            <!-- <a class="collapse-item" href="/pdv/?view=frete" style=" border-radius: 8px; font-size:18px;">Frete</a> -->
+            <!-- <a class="collapse-item" href="/pdv/?view=geolocalizacao" style=" border-radius: 8px; font-size:18px;">Geolocalização</a> -->
+            <!-- <a class="collapse-item" href="https://whatsapp-api-ph-b4d70f6eb4d2.herokuapp.com/" target="_blank" style=" border-radius: 8px; font-size:18px;">Conectar Whatsapp</a> -->
             <!-- <a class="collapse-item" href="/pdv/?view=cards" style=" border-radius: 8px; font-size:18px;">Pessoal</a> -->
             <a class="collapse-item" href="/pdv/?view=open" style=" border-radius: 8px; font-size:18px;">Abertura Caixa</a>
             <a class="collapse-item" href="/pdv/?view=exit" style=" border-radius: 8px; font-size:18px;">Fechamento Caixa</a>
@@ -189,7 +189,7 @@ $usuario = $_SESSION['user'];
             <a class="collapse-item" href="/pdv/?view=produtos" style=" border-radius: 8px; font-size:18px;">Vendas Produtos</a>
             <a class="collapse-item" href="/pdv/?view=despesas" style=" border-radius: 8px; font-size:18px;">Add Despesas</a>
             <a class="collapse-item" href="/pdv/?view=fiado" style=" border-radius: 8px; font-size:18px;">Fiados</a>
-            <a class="collapse-item" href="/pdv/?view=ponto" style=" border-radius: 8px; font-size:18px;">Ponto</a>
+            <!-- <a class="collapse-item" href="/pdv/?view=ponto" style=" border-radius: 8px; font-size:18px;">Ponto</a> -->
 
           </div>
         </div>
