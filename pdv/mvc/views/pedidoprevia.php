@@ -96,9 +96,10 @@ $hashpagina = $_SESSION['hashpagina'];
 
 
                                                        console.table(html);
-                                                       Quantidade = document.getElementById("detalhes[<?php echo $row_usuario['id_produto'] ?>][quantidade]").value
-                                                       Quantidade-- ;
-                                                        Q = document.getElementById("detalhes[<?php echo $row_usuario['id_produto'] ?>][quantidade]").value = Quantidade;
+                                                    //    Quantidade = document.getElementById("detalhes[<?php echo $row_usuario['id_produto'] ?>][quantidade]").value
+                                                    //    Quantidade-- ;
+                                                        // Q = document.getElementById("detalhes[<?php echo $row_usuario['id_produto'] ?>][quantidade]").value = Quantidade;
+                                                        atualizar_previa();
                                                     },
 
                                                     error: function(err) {
@@ -133,7 +134,9 @@ $hashpagina = $_SESSION['hashpagina'];
             });
             console.log(valorFormatado);
 
-            document.getElementById("pagamento").value = valorFormatado
+            document.getElementById("pagamento").value = valorFormatado;
+            document.getElementById("valor_frete").value = <?php echo ($valor_real); ?>
+            
         </script>
 
             

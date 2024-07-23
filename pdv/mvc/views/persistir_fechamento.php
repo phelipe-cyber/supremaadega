@@ -141,7 +141,7 @@ if ($total > 0) {
 		$observacao = $rows_produtos['observacao'];
 		$usuario = $rows_produtos['usuario'];
 		$gorjeta = $rows_produtos['gorjeta'];
-		$status = $rows_produtos['status'];
+		$status = $rows_produtos['status'];total
 		$frete_ifood = $rows_produtos['frete_ifood'];
 
 		$tab_produto = "SELECT * FROM produtos WHERE nome LIKE '$produto' AND preco_venda LIKE '$valor'";

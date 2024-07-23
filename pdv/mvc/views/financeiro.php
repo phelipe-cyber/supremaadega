@@ -327,6 +327,16 @@ if (isset($escolha)) {
 					$total1 += $valor;
 					$total3 += $valor_maquina;
 
+					if( $valor_maquina == 0 ){
+						$soma[] = $valor;
+					   
+				   }else{
+					   $soma[] = $valor_maquina;
+					$total4 += $valor_maquina-$valor;
+					   
+				   }
+
+				   $valor4 = array_sum($soma);
 				?>
 
 					<tr>
@@ -390,12 +400,13 @@ if (isset($escolha)) {
 					<td class="text-center"></td>
 					<td class="text-center"></td>
 					<td class="text-center"></td>
+					<td class="text-center"></td>
 
 					<td class="text-center">
 						<h4 style="width: 100%; color: green;"><b>R$ <?php echo number_format($total1, 2); ?></b></h4>
 					</td>
 					<td class="text-center">
-						<h4 style="width: 100%; color: green;"><b>R$ <?php echo number_format($total1-$total3, 2); ?></b></h4>
+						<h4 style="width: 100%; color: green;"><b>R$ <?php echo number_format($valor4, 2); ?></b></h4>
 					</td>
 					<td class="text-center"></td>
 					<td class="text-center"></td>
@@ -478,10 +489,6 @@ if (isset($escolha)) {
 			</tbody>
 		</table>
 
-
-
-
-
 		<div class="modal fade bd-example-modal" id="modal_exclui_proventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog " role="document">
 				<div class="modal-content">
@@ -530,11 +537,6 @@ if (isset($escolha)) {
 				</div>
 			</div>
 		</div>
-
-
-
-
-
 
 		<div class="modal fade bd-example-modal" id="modal_exclui_despesas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog " role="document">
@@ -587,9 +589,6 @@ if (isset($escolha)) {
 			</div>
 		</div>
 
-
-
-
 		<!-- CRIA O SCRIPT JQUERY PARA TRATAR DOS DADOS QUE VEEM COM A CHAMADA DA REQUIZIÇÃO DO MODAL -->
 		<script type="text/javascript">
 			$('#modal_exclui_proventos').on('show.bs.modal', function(event) {
@@ -641,7 +640,7 @@ if (isset($escolha)) {
 
 		echo "<hr>";
 
-		$saldo = $total1 - $total3;
+		 $saldo = $total1 - $total3;
 		
 		// echo $total1;
 		// echo "<br>";
@@ -653,8 +652,9 @@ if (isset($escolha)) {
 		?>
 
 			<h2 class="text-center" style="color: green; height: 50px;"><b>Saldo Vendas: R$ <?php echo number_format($total1, 2); ?></b></h2>
-			<h2 class="text-center" style="color: green; height: 50px;"><b>Valor Total Venda Maquinha: R$ <?php echo number_format($total3, 2); ?></b></h2>
-			<h2 class="text-center" style="color: green; height: 50px;"><b>Saldo Atual C/ Desconto Maquinha: R$ <?php echo number_format($saldo, 2); ?></b></h2>
+			<h2 class="text-center" style="color: green; height: 50px;"><b>Venda Maquininha: R$ <?php echo number_format($total3, 2); ?></b></h2>
+			<h2 class="text-center" style="color: green; height: 50px;"><b>Valor à Receber: R$ <?php echo number_format($valor4, 2); ?></b></h2>
+			<h2 class="text-center" style="color: red; height: 50px;"><b>Desconto Maquininha: R$ <?php echo number_format($total4, 2); ?></b></h2>
 			<?php
 				if( $total2 == 0 ){
 				}else{

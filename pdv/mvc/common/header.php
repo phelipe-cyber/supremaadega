@@ -40,7 +40,7 @@ $usuario = $_SESSION['user'];
 
   <!-- Custom styles for this template-->
   <link href="mvc/common/css/sb-admin-2.min.css" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa_Y_n8iDiTspZmmyPhbBWwDJ8IJbHtR8&callback=initMap" defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa_Y_n8iDiTspZmmyPhbBWwDJ8IJbHtR8&callback=initMap" defer></script> -->
 </head>
 
 
@@ -106,13 +106,13 @@ $usuario = $_SESSION['user'];
       <li class="nav-item active">
         <a class="nav-link" href="/pdv/?view=pedidoBalcao">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Novo Pedido - Balcão</span></a>
+          <span>Novo Pedido</span></a>
       </li>
 
       <li class="nav-item active">
         <a class="nav-link" href="/pdv/?view=todosPedidoBalcao">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Ver Pedidos - Balcão</span></a>
+          <span>Ver Pedidos</span></a>
       </li>
 
       <li class="nav-item active">

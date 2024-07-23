@@ -10,9 +10,15 @@ $produtos = mysqli_query($conn, $tab_produtos);
 
 ?>
 
-<h1 class="display-12">Produtos</h1>
+<h1 class="display-12">Receber Produtos</h1>
 
 <div class="row">
+
+<div class="d-flex justify-content-center">
+            <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+                <span class="sr-only">Loading...</span>
+            </div>
+    </div>
 
 
     <div class="col-4" id="mensagem" style="visibility: visible">
@@ -27,112 +33,57 @@ $produtos = mysqli_query($conn, $tab_produtos);
 			?>
     </div>
 
-    <div class="col-4">
+    <div class="col-6">
     </div>
 
-    <div class="col-1">
-        <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModalcad">Cadastrar Novo</button>
-    </div>
     
-    <div class="col-1">
-    <form method="POST" action="?view=receber">
-		<button href="?view=receber" type="submit" class="btn btn-xs btn-info" style=" margin: 20px; ">Receber </button>
-	</form>
-    </div>
-
 
 </div>
 
-<!-- CONSTRUÇÃO DO MODAL DE CADASTRO -->
-<div class="modal fade bd-example-modal-xl" id="myModalcad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-center" id="myModalLabel"> Cadastrar Um Novo Produto </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <!-- FIM DO CABEÇALHO DO MODAL DE CADASTRO -->
 
-            </div>
-            <div class="modal-body">
 
-                <!-- CRIA O FORMULÁRIO PARA CADASTRAR E ENVIAR PELO METODO POST PARA O SCRIPT "cadastrar_produtos.php" -->
-                <form method="POST" action="mvc/model/cadastrar_produtos.php">
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="recipient-name" class="col-form-label">Código(Barras):</label>
-                            <input name="codigo" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="recipient-name" class="col-form-label">Nome:</label>
-                            <input required name="nome" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="message-text" class="col-form-label">Detalhes:</label>
-                            <input name="detalhes" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Categoria:</label>
-                            <input required name="categoria" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Preço de Custo:</label>
-                            <input name="preco_custo" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Preço de Venda:</label>
-                            <input required name="preco_venda" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Preço de Venda iFood:</label>
-                            <input required name="preco_venda_ifood" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Estoque Atual:</label>
-                            <input name="estoque_atual" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Estoque Mínimo:</label>
-                            <input name="estoque_minimo" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Data da Compra:</label>
-                            <input name="data_compra" type="text" class="form-control" id="compra">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Data da Validade:</label>
-                            <input name="data_validade" type="text" class="form-control" id="validade">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="recipient-name" class="col-form-label">Unidade (Kg/L):</label>
-                            <input name="unidade" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="recipient-name" class="col-form-label">Marca:</label>
-                            <input name="marca" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="recipient-name" class="col-form-label">Fornecedor:</label>
-                            <input name="fornecedor" type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label for="message-text" class="col-form-label">Observação/Ingredientes:</label>
-                            <textarea name="observacoes" class="form-control"></textarea>
-                        </div>
-                    </div>
+<div class="form-group col-md-6">
 
-                    <div class="modal-footer">
+<b><label for="">* Codigo:</label></b><input type="text" name="codigo" id="codigo" class="form-control" autofocus ></div>
+   
 
-                        <button type="submit" class="btn btn-success">Cadastrar</button>
-                    </div>
+<script>
+                    
+                    document.getElementById('codigo').addEventListener('input', function() {
+                        var codigo = this.value;
+                                            
+                        var vData = {
+                                     id: codigo,
+                                     }; 
+                        console.table(vData);
+                        $.ajax({
+                                   url: './mvc/model/ad_receber.php',
+                                   dataType: 'html',
+                                   type: 'POST',
+                                   data: vData,
+                                   beforeSend: function() {
+                                       // document.getElementById('spinner').style='diplay:flex;';
+                                   },
+                                   success: function(html) {
+                                   console.log(html)
+                                    if(html == "Error: Produto não cadastrado"){
+                                        document.getElementById('codigo').value ='';
+                                        // alert(html);
+                                    }else{
+                                        document.getElementById('spinner').style='display:none;';
+                                        document.getElementById('codigo').value ='';
+                                        atualizar_receber()
+                                        }
 
-                </form>
+                                    },
+                                   error: function(err) {
+                                   document.getElementById('spinner').style='display:none;';
+                                   },
+                               });
+                    });
+            </script>
 
-            </div>
-        </div>
-        <!-- FIM DO CORPO DA MENSAGEM DO MODAL DE CADASTRO -->
-    </div>
-</div>
+
 
 <label></label>
 <h4> Relação de Produtos :</h4>
@@ -534,3 +485,8 @@ $(document).ready(function() {
 });
 </script>
 
+<script>
+    function atualizar_receber() {
+        location.reload()
+    };
+</script> 
