@@ -100,10 +100,13 @@ $hashpagina = $_SESSION['hashpagina'];
                                                     //    Quantidade-- ;
                                                         // Q = document.getElementById("detalhes[<?php echo $row_usuario['id_produto'] ?>][quantidade]").value = Quantidade;
                                                         atualizar_previa();
+                                                        
                                                     },
 
                                                     error: function(err) {
                                                         document.getElementById('spinner').style='display:none;';
+                                                        location.reload();
+
 
 
                                                     },

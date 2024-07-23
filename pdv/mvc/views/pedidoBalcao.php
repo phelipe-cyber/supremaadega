@@ -289,6 +289,8 @@ $pgto = mysqli_query($conn, $tab_pgto);
                                         },
                                        error: function(err) {
                                        document.getElementById('spinner').style='display:none;';
+                                       location.reload();
+
                                        },
                                    });
             }
