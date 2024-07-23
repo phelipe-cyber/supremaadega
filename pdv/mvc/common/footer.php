@@ -18,7 +18,7 @@
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; </span>
             
-              <a href="" class="text-decoration-none">Bedlek Burgue's <?php echo $ano ?></a>
+              <a href="" class="text-decoration-none">Suprema Adega <?php echo $ano ?></a>
             
           </div>
         </div>

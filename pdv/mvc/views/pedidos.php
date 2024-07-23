@@ -98,7 +98,7 @@
                                          // Cria uma nova notificação
                                          var notificacao = new Notification("Novo pedido: ' .$numeropedido. ' ", {
                                              body: "Chegou um novo pedido para: '.$tipoEntrega.' ",
-                                             icon: "mvc/common/img/logo_bedlek.ico"
+                                             icon: "mvc/common/img/suprema_adega.ico"
                                          });
                                          // Manipula o clique na notificação (opcional)
                                          notificacao.onclick = function () {
