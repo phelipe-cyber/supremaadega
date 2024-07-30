@@ -29,17 +29,18 @@ include_once ("conexao.php");
 
   $numeropedido = $pedido;
   
+  echo $numeropedido;
+  die();
+
+
   $pgto = ($_POST['pgto']);
   $hashpagina = $_POST['hashpagina'];
-  
-  
   $valor_pago_cliente = $_POST['valor_pago_cliente'];
 
   $sql_previa = "SELECT * FROM `pedido_previa` where quantidade <> '' and hashpagina = '$hashpagina' order by id ASC";
   $pedido_previa = mysqli_query($conn, $sql_previa);
 
   while ($rows_previa = mysqli_fetch_assoc($pedido_previa)) {
-      // print_r($rows_previa);
       
     $quantidade = $rows_previa['quantidade'];
     $pedido =     ($rows_previa['produto']);
@@ -66,8 +67,7 @@ include_once ("conexao.php");
   };
 
     $novoIdInserido = $conn->insert_id;
-    echo $numeropedido;
-    die();
+    
     $tab_produtos = "SELECT * FROM `produtos` where nome <> 'Frete' and codigo = '$id_produto' ORDER by id ASC" ;
     $produtos = mysqli_query($conn, $tab_produtos);
   
