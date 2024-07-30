@@ -61,6 +61,7 @@ include_once ("conexao.php");
   $delete_previa_mysqli = mysqli_query($conn, $delete_previa);
 
   };
+  echo $conn->connect_error;
 
   echo $numeropedido;
   die();
