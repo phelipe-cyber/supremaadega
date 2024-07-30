@@ -66,8 +66,8 @@ include_once ("conexao.php");
   };
 
     $novoIdInserido = $conn->insert_id;
-
-
+    echo $numeropedido;
+    die();
     $tab_produtos = "SELECT * FROM `produtos` where nome <> 'Frete' and codigo = '$id_produto' ORDER by id ASC" ;
     $produtos = mysqli_query($conn, $tab_produtos);
   
