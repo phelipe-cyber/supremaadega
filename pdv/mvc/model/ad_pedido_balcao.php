@@ -28,10 +28,6 @@ include_once ("conexao.php");
   };
 
   $numeropedido = $pedido;
-  
-  echo $numeropedido;
-  die();
-
 
   $pgto = ($_POST['pgto']);
   $hashpagina = $_POST['hashpagina'];
@@ -55,7 +51,7 @@ include_once ("conexao.php");
     }
     
     $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, troco, pgto, usuario, `data` , gorjeta, status, frete_ifood ) VALUES
-    ('$numeropedido','$tipo','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$troco','$pgto','$user','$data_hora' ,'' , 1, '$frete_ifood' )";
+    ('$numeropedido','$tipo','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$troco','$pgto','$user','$data_hora' ,'' , 1, '' )";
   $adiciona_pedido = mysqli_query($conn, $insert_table);
 
   $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = $id_mesa";
@@ -65,6 +61,9 @@ include_once ("conexao.php");
   $delete_previa_mysqli = mysqli_query($conn, $delete_previa);
 
   };
+
+  echo $numeropedido;
+  die();
 
     $novoIdInserido = $conn->insert_id;
     
