@@ -126,14 +126,14 @@ $pgto = mysqli_query($conn, $tab_pgto);
               
                 var valor_pago = document.getElementById("valor_pago").value;
 
-                var valor_frete = document.getElementById("valor_frete").value;
+                var valor_total = document.getElementById("valor_total").value;
 
-                var total = document.getElementById("valor_frete").value;
+                var total = document.getElementById("valor_total").value;
 
                 console.log(valor_pago);
 
-                if (valor_frete == "") {
-                    valor_frete = "0.00";
+                if (valor_total == "") {
+                    valor_total = "0.00";
 
                     var tarifa = (valor_pago.replace(",", "."));
                     var taxa = (total.replace(",", "."));
@@ -151,7 +151,7 @@ $pgto = mysqli_query($conn, $tab_pgto);
                           document.getElementById('troco_display').style = 'display:block';
 
                 } else {
-                    var valor_frete = document.getElementById("valor_frete").value;
+                    var valor_total = document.getElementById("valor_total").value;
 
                     var tarifa = (valor_pago.replace(",", "."));
                     var taxa = (total.replace(",", "."));
@@ -176,7 +176,7 @@ $pgto = mysqli_query($conn, $tab_pgto);
 
 <div id="valor_pago_style_total" class="form-group col-md-6">
     <label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: blue; color: white; ">Valor Total</label>
-    <input autofocus name="valor_pago" id="valor_frete" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" value="<?php echo number_format($total, 2); ?>">
+    <input autofocus name="valor_pago" id="valor_total" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" value="<?php echo number_format($total, 2); ?>">
 </div>
 
 </div>
@@ -266,7 +266,7 @@ $pgto = mysqli_query($conn, $tab_pgto);
 
                 hashpagina =  document.getElementById("hash").value;
                 document.getElementById('spinner').style='diplay:flex;';
-                valor_pago_cliente = document.getElementById("valor_frete").value
+                valor_pago_cliente = document.getElementById("valor_total").value
                 var vData = {
                     hashpagina: hashpagina,
                     pgto:tipopgto,
@@ -282,14 +282,16 @@ $pgto = mysqli_query($conn, $tab_pgto);
                                            // document.getElementById('spinner').style='diplay:flex;';
                                        },
                                        success: function(html) {
-                                       console.log(html)
+                                       console.table(html)
                                             document.getElementById('spinner').style='display:none;';
-                                            location.reload();
+                                            // location.reload();
 
                                         },
                                        error: function(err) {
                                        document.getElementById('spinner').style='display:none;';
-                                       location.reload();
+                                       console.table(err)
+
+                                    //    location.reload();
 
                                        },
                                    });
