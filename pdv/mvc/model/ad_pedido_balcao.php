@@ -29,13 +29,10 @@ include_once ("conexao.php");
 
   $numeropedido = $pedido;
   
-  $user =  $_SESSION['user'];
-  $cliente = ($_POST['cliente']);
   $pgto = ($_POST['pgto']);
-  $tipo = ($_POST['tipo']);
   $hashpagina = $_POST['hashpagina'];
-  $troco = $_POST['troco'];
-  $frete_ifood = $_POST['frete_ifood'];
+  
+  
   $valor_pago_cliente = $_POST['valor_pago_cliente'];
 
   $sql_previa = "SELECT * FROM `pedido_previa` where quantidade <> '' and hashpagina = '$hashpagina' order by id ASC";
