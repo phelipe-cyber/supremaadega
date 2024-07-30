@@ -138,7 +138,7 @@ $hashpagina = $_SESSION['hashpagina'];
             console.log(valorFormatado);
 
             document.getElementById("pagamento").value = valorFormatado;
-            document.getElementById("valor_frete").value = <?php echo ($valor_real); ?>
+            document.getElementById("valor_total").value = <?php echo ($valor_real); ?>
             
         </script>
 

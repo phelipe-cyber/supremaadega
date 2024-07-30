@@ -180,8 +180,6 @@ include_once ("conexao.php");
       $alterar_table = "UPDATE `pedido` SET `status` = '4', `pgto` = '$pgto' WHERE `numeropedido` = '$numeropedido' ";
       $produto_excluido = mysqli_query($conn, $alterar_table);
       
-      $_SESSION['msg'] = "<div class='alert alert-success text-center' role='alert'> Comanda da Mesa Fiado encerrada com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-    
       
     }else{
   
@@ -202,5 +200,4 @@ include_once ("conexao.php");
   $_SESSION['novoIdInserido'] = $numeropedido;
   $_SESSION['$cliente'] = $cliente;
 
-  // echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=pedidoBalcao'>";
-  $_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Pedido para $numeropedido cadastrado com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+  
