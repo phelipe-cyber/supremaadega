@@ -61,11 +61,7 @@ include_once ("conexao.php");
   $delete_previa_mysqli = mysqli_query($conn, $delete_previa);
 
   };
-  echo $conn->connect_error;
-
-  echo $numeropedido;
-  die();
-
+  
     $novoIdInserido = $conn->insert_id;
     
     $tab_produtos = "SELECT * FROM `produtos` where nome <> 'Frete' and codigo = '$id_produto' ORDER by id ASC" ;
