@@ -404,7 +404,7 @@ if (isset($escolha)) {
 					</td>
 					<td class="text-center"></td>
 					<td class="text-center"></td>
-					<td class="text-center"></td>
+					
 				</tr>
 
 			</tbody>
