@@ -9,7 +9,7 @@ $id = $_POST['id'];
 
 $id_pedido = $_POST['id'];
 
-$tab_cliente = "SELECT * FROM pedido p left JOIN clientes c on c.id = p.cliente where  p.numeropedido = '$id_pedido' limit 1";
+$tab_cliente = "SELECT * FROM pedido p  where  p.numeropedido = '$id_pedido' limit 1";
 $cliente = mysqli_query($conn, $tab_cliente);
 
  $tab_pedido = "SELECT * FROM pedido p  where  p.numeropedido = '$id_pedido'";
@@ -77,27 +77,24 @@ $msg4 = $msg . $itensConcatenados. $msg3;
 
 
 ?>
-<!-- Whatsapp -->
-<!-- <a class="btn text-white" style="background-color: #25d366;" href="href=https://api.whatsapp.com/send?phone=55<?php echo $tel . "&text=" . $msg ?>" role="button">
-  <i class="fab fa-whatsapp"></i>
-</a> -->
 
 
 
-<!-- https://api.whatsapp.com/send?phone=5511964081280&text=Ola.Recebemos%20seu%20pedido...%20-Pedido%20ser%C3%A1%20entregue%20no%20endere%C3%A7o:%20Rua%20Biotonico,%20n%C2%BA%20205,%20Vila%20Urup%C3%AAs%20----------------------------------------%201x%20Pizza%20Grande%20-%20Batata%201x%20Pizza%20Grande%20-%20Salame%20*%20Obs:%20Metade%20salame%20/%20metade%20nordestina%20----------------------------------------%20Forma%20de%20pagamento:%20Pix%2011948758597%20Valor%20entrega:%20R$%203,00%20Valor%20total:%20R$%2086,00 -->
+
+
 
 <?php
 
 
 //  $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
 $tab_pedidos = "SELECT * FROM pedido p  
-left JOIN clientes c on c.id = p.cliente
+
 where numeropedido = '$id'";
 
 $pedidos = mysqli_query($conn, $tab_pedidos);
 
 $tab_mesas = "SELECT * FROM pedido p  
-left JOIN clientes c on c.id = p.cliente
+
 where numeropedido = '$id'";
 
 $mesas = mysqli_query($conn, $tab_mesas);
@@ -125,19 +122,13 @@ if ($status == 1 || $status == 2 || $status == 3 || $status == 4 ) { ?>
 <h4 class="mb-10 text-center">Pedido: <?php echo $id; ?>
 <!-- <a target='_blank' href='https://api.whatsapp.com/send?phone=55<?php echo $tel . "&text=" . $msg4 ?>'> <i class='fab fa-whatsapp' style='font-size:50px;color:green;'></i> </a> -->
 
-<form method="POST" action="?view=whatsapp">
-    <input type="hidden" name="id_pedido" value="<?php echo $id; ?>">
-    <!-- <a target='_blank' > <i class='fab fa-whatsapp' style='font-size:50px;color:green;'></i> </a> -->
-    <button class='fab fa-whatsapp' style='font-size:50px;color:green;'>  </button>
-</form>
 
 </h4>
 
 <form method="POST" action="?view=novo_item">
 
     <h4 class="mb-10 text-center">
-        <button type="submit" class="btn btn-outline-success" data-toggle="modal" data-target=""><b>Novo
-                Item</b></button>
+       
     </h4>
 
     <input type="hidden" name="pedido" value="<?php echo $id; ?>">
