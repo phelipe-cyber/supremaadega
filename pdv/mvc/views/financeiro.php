@@ -312,8 +312,6 @@ if (isset($escolha)) {
 
 					$rendimento = $rows_vendas['rendimento'];
 
-					$cliente = $rows_vendas['nome'];
-
 					$valor = $rows_vendas['valor'];
 					$valor_maquina = $rows_vendas['valor_maquina'];
 					$pgto = $rows_vendas['pgto'];
@@ -353,7 +351,6 @@ if (isset($escolha)) {
 							</form>
 						</td>
 						<td class="text-center"><?php echo $rendimento; ?></td>
-						<td class="text-center"><?php echo $cliente; ?></td>
 						<td class="text-center" style="color: green;">R$ <?php echo number_format($valor, 2); ?></td>
 						<?php
 						
@@ -383,7 +380,7 @@ if (isset($escolha)) {
 					<td class="text-center"></td>
 					<td class="text-center"></td>
 					<td class="text-center"></td>
-					<td class="text-center"></td>
+					
 				</tr>
 
 				<tr>
@@ -394,7 +391,7 @@ if (isset($escolha)) {
 					<td class="text-center"></td>
 					<td class="text-center"></td>
 					<td class="text-center"></td>
-					<td class="text-center"></td>
+					
 
 					<td class="text-center">
 						<h4 style="width: 100%; color: green;"><b>R$ <?php echo number_format($total1, 2); ?></b></h4>
@@ -404,7 +401,7 @@ if (isset($escolha)) {
 					</td>
 					<td class="text-center"></td>
 					<td class="text-center"></td>
-					
+					<td class="text-center"></td>
 				</tr>
 
 			</tbody>
