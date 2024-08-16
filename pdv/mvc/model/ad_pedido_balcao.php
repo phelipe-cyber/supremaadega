@@ -54,8 +54,6 @@ include_once ("conexao.php");
     ('$numeropedido','$tipo','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$troco','$pgto','$user','$data_hora' ,'' , 1, '' )";
   $adiciona_pedido = mysqli_query($conn, $insert_table);
 
-  $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = $id_mesa";
-  $adiciona_pedido_2 = mysqli_query($conn, $insert_table);
 
   $delete_previa = "DELETE FROM pedido_previa WHERE hashpagina = '$hashpagina'";
   $delete_previa_mysqli = mysqli_query($conn, $delete_previa);
@@ -70,7 +68,6 @@ include_once ("conexao.php");
     while ($rows_produtos = mysqli_fetch_assoc($produtos)) {
           $estoque_atual = $rows_produtos['estoque_atual'];
     }
-  
     if( $estoque_atual == "" ){
       }else{
   
@@ -151,7 +148,7 @@ include_once ("conexao.php");
     
       $insert_table = "INSERT INTO vendas ( id_pedido, valor, valor_maquina, cliente, data, rendimento, pgto) VALUES ( '$numeropedido', '$valor_pago_cliente', '$Valor_format', '$cliente', '$data', 'Mesa', '$pgto')";
       $produtos_editados = mysqli_query($conn, $insert_table);
-  
+      
       $alterar_table = "UPDATE `pedido` SET `status` = '4', `pgto` = '$pgto' WHERE `numeropedido` = '$numeropedido' ";
       $produto_excluido = mysqli_query($conn, $alterar_table);
   
