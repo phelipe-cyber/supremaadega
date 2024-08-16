@@ -64,7 +64,7 @@ include_once ("conexao.php");
   
     $novoIdInserido = $conn->insert_id;
     
-    $tab_produtos = "SELECT * FROM `produtos` where nome <> 'Frete' and codigo = '$id_produto' ORDER by id ASC" ;
+    $tab_produtos = "SELECT * FROM `produtos` where codigo = '$id_produto' ORDER by id ASC" ;
     $produtos = mysqli_query($conn, $tab_produtos);
   
     while ($rows_produtos = mysqli_fetch_assoc($produtos)) {
@@ -104,44 +104,14 @@ include_once ("conexao.php");
       $pctm = 3.15;
       $valor_descontado = $total - ($total * $pctm / 100);
       $Valor_format = number_format($valor_descontado, 2);
-        
-    }elseif( $pgto == 'Voucher' ){
+      
   
       $total = $_POST['valor_pago_cliente'];
       $pctm = 3.19;
       $valor_descontado = $total - ($total * $pctm / 100);
       $Valor_format = number_format($valor_descontado, 2);
   
-    }elseif($pgto == 'iFood'){
-  
-      $total = $_POST['valor_pago_cliente'];
-      
-      // Taxa de comissão do Repasse em 1 Semana
-      $pctmRepasse = 1.59;
-      $valor_descontado_Repasse = ($total * $pctmRepasse / 100);
-      $Valor_Repasse = number_format($valor_descontado_Repasse, 2);
-      
-      // Comissão iFood
-      $pctmComissao = 23.00;
-      $valor_descontado_Comissao = ($total * $pctmComissao / 100);
-      $Valor_Comisssao = number_format($valor_descontado_Comissao, 2);
-      
-      // Comissão pela transação do Pagamento
-      $pctmTransacao = 3.20;
-      $valor_descontado_Transacao = ($total * $pctmTransacao / 100);
-      $Valor_Transacao = number_format($valor_descontado_Transacao, 2);
-      
-      // Taxas e comissões
-      $taxascomissao = $Valor_Repasse + $Valor_Comisssao + $Valor_Transacao;
-      
-      $totalpedido = $total + $frete_ifood;
-  
-      $valorliquido = $totalpedido - $frete_ifood -  $taxascomissao;
-      
-      $Valor_format = $valorliquido;
-      
     }
-
 
     $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = '$numeropedido' ";
 
