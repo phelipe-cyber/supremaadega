@@ -284,7 +284,7 @@ $pgto = mysqli_query($conn, $tab_pgto);
                                        success: function(html) {
                                        console.table(html)
                                             document.getElementById('spinner').style='display:none;';
-                                            // location.reload();
+                                            location.reload();
 
                                         },
                                        error: function(err) {
