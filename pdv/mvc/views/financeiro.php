@@ -270,7 +270,7 @@ if (isset($escolha)) {
 		</form>
 		<?php
 
-		$tab_vendas = "SELECT *, v.id as id_venda FROM vendas v left join clientes c on c.id = v.cliente WHERE data LIKE '%$mes%'";
+		$tab_vendas = "SELECT *, v.id as id_venda FROM vendas v WHERE data LIKE '%$mes%'";
 		$vendas = mysqli_query($conn, $tab_vendas);
 
 		$tab_despesas = "SELECT * FROM despesas WHERE data LIKE '%$mes%'";
@@ -288,7 +288,6 @@ if (isset($escolha)) {
 					<th class="text-center">Imprimir</th>
 					<th class="text-center">Visualizar Pedido</th>
 					<th class="text-center">Rendimento</th>
-					<th class="text-center">Cliente</th>
 					<th class="text-center">Valor Venda</th>
 					<th class="text-center">Valor Receber</th>
 					<th class="text-center">Pagamento</th>
@@ -314,11 +313,6 @@ if (isset($escolha)) {
 					$rendimento = $rows_vendas['rendimento'];
 
 					$cliente = $rows_vendas['nome'];
-
-					if( empty($cliente) ){
-						$cliente = ($rows_vendas['cliente']);
-					}
-
 
 					$valor = $rows_vendas['valor'];
 					$valor_maquina = $rows_vendas['valor_maquina'];
